@@ -17,3 +17,4 @@ export const isMin = function (parent, tam) {
   parent.error = (parent.error === message) ? "" : parent.error;
   return parent.validator;
 }
+

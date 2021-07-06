@@ -38,5 +38,21 @@ export const User = {
     get value() {
       return this.content;
     }
+  },
+  model: function () {
+    let user = {};
+    const keys = Object.keys(this);
+    for (const key of keys) {
+      if (key !== 'model')
+        user[key] = this[key].value;
+    }
+    return user;
+  },
+  submit: function () {
+    this.name.validator.required(this.name);
+    this.idade.validator.required(this.idade).min(this.idade, 3);
+    this.cpf.validator.required(this.cpf);
+
+    return this.name.error || this.idade.error || this.cpf.error;
   }
 }

@@ -37,18 +37,17 @@ export default {
   },
   data() {
     return {
-      user: User,
-      money: {
-        value: '0.00'
-      }
+      user: User
     }
   },
   created() {
-    console.log(this.user)
+    console.log(this.user);
+    
   },
   methods: {
     submit() {
-      
+      if (this.user.submit())
+        console.log(this.user.model());
     }
   }
 }
